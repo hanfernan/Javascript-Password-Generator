@@ -6,7 +6,7 @@ var lowerCaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 var upperCaseChars = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numericChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChars = ["!","#","$","%","&","{","|","}","~"];
-var numOfChars = window.prompt("How many characters would you like your password to contain?");
+
 var special = window.confirm("Click OK to confirm including special characters");
 var numeric = window.confirm("Click OK to confirm including numeric characters");
 var lowerCase = window.confirm("Click OK to confirm lowercase characters");
@@ -25,39 +25,48 @@ function writePassword() {
 //generate password based on user input
 function generatePassword() {
   //prompt user to enter desired number of password characters
-  console.log(numOfChars);
+ numOfChars;
   //alert user if character length is <8 or >128
   if (numOfChars < 8 || numOfChars> 128) {
     alert("Password must be between 8 and 128 characters");
-    return generatePassword;
+    return generatePassword();
+  }else if (!numOfChars) {
+    alert("You must enter something");
+    return generatePassword();
+  }else {
+    numOfChars;
+  }
 
-  //ask user remaining character questions
-  }console.log (special);
+  //ask user remaining character questions in if statements and concat passwordContainer along the way so that the conditions will keep being added if true
+  
+  console.log (special);
   if (special) {
     passwordContainer = passwordContainer.concat(specialChars);
-  };
+  }
   
   console.log (numeric);
   if (numeric) {
       passwordContainer = passwordContainer.concat(numericChars);
-  };
+  }
 
   console.log (lowerCase);
   if (lowerCase) {
       passwordContainer = passwordContainer.concat(lowerCaseChars);
-  };
-  
+  }
+
   console.log (upperCase);
   if (upperCase) {
       passwordContainer = passwordContainer.concat(upperCaseChars);
-    } 
-  };
-  //everything above this works
+  }
+
   //if user responds "cancel" to all, inform them they must select at least one character type
 
   if(!special && !numeric && !lowerCase && !upperCase) {
     alert("Password must include at least one valid character type");
+    return generatePassword();
+  }
 
+  console.log (passwordContainer);
     //if all character types are selected
   // } else if (special && numeric && lowerCase && upperCase) {
     //right now this is just the contactination of all my character arrays
@@ -66,7 +75,6 @@ function generatePassword() {
     // [Math.floor(Math.random())]
     //right now this is my starting place for the for loop I will create to create a password of numOfChars length
     // for(i = 0; i <= numOfChars; i++){}
-  }
 
   return "Temporary Password";
 };
