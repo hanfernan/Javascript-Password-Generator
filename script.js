@@ -19,7 +19,7 @@ function writePassword() {
 
 //generate password based on user input
 function generatePassword() {
-  //prompt user to enter desired number of password characters
+  //prompt user to enter desired number of password characters and create variable
   var numOfChars = window.prompt("How many characters would you like your password to contain?");
   //alert user if character length is <8 or >128
   if (numOfChars < 8 || numOfChars> 128) {
@@ -36,6 +36,7 @@ function generatePassword() {
   
   var special = window.confirm("Click OK to confirm including special characters");
   if (special) {
+    //if special = true add it to passwordContainer
     passwordContainer = passwordContainer.concat(specialChars);
   }
   
@@ -62,14 +63,6 @@ function generatePassword() {
   }
 
   console.log (passwordContainer);
-    //if all character types are selected
-  // } else if (special && numeric && lowerCase && upperCase) {
-    //right now this is just the contactination of all my character arrays
-    // special.concat([numeric[,lowerCase[,upperCase]]])
-    //right now this is my starting place for pulling a random index from the concatinated array
-    // [Math.floor(Math.random())]
-    //right now this is my starting place for the for loop I will create to create a password of numOfChars length
-    // for(i = 0; i <= numOfChars; i++){}
 
   return "Temporary Password";
 };
@@ -91,4 +84,13 @@ generateBtn.addEventListener("click", writePassword);
 
   //password will be numOfCharacters long made up of a random assortment of special, numeric, lowerCase, and upperCase
 
- 
+  //array join
+
+
+  //let password = passwordContainer.length with each character in password being a random value from passwordContainer
+  //create something that makes a string of passwordContainer.length
+  //create something that randomly chooses one value from passwordContainer
+
+  for(i = 0; i <= numOfChars; i++){
+  let something = passwordContainer[Math.floor(Math.random() * passwordContainer.length)];
+  }
