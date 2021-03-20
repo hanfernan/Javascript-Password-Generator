@@ -1,12 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//Defined Variables for my arrays
+//Defined Global Variables for my arrays
 var lowerCaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseChars = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numericChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChars = ["!","#","$","%","&","{","|","}","~"];
-var passwordContainer = [];
+
 
 // Write password to the #password input
 function writePassword() {
@@ -19,6 +19,9 @@ function writePassword() {
 
 //generate password based on user input
 function generatePassword() {
+  //Define local variables
+  var passwordContainer = [];
+  var finalPassword = "";
   //prompt user to enter desired number of password characters and create variable
   var numOfChars = window.prompt("How many characters would you like your password to contain?");
   //alert user if character length is <8 or >128
@@ -62,35 +65,21 @@ function generatePassword() {
     return generatePassword();
   }
 
-  console.log (passwordContainer);
+  //logs all of the available characters based on user input
 
-  return "Temporary Password";
+  //create a random password based on available characters stored in passwordContainer
+  for(i = 0; i <= numOfChars; i++) {
+
+    var randomIndex= Math.floor(Math.random() * passwordContainer.length);
+
+    var randomPassword = passwordContainer[randomIndex];
+
+    finalPassword += randomPassword;
+
+  }
+
+  return finalPassword;
 };
-
-
 
 // // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-//.concat combines multiple arrays
-//for loop to get computer to pick random number of variables
-//then you have to store this and return it
- 
-  //TODO: Write the code that asks the user about the parameters for their password
-  //TODO: Use those parameters to generate a new password
-  //TODO: Return that password
-
-  //password will be numOfCharacters long made up of a random assortment of special, numeric, lowerCase, and upperCase
-
-  //array join
-
-
-  //let password = passwordContainer.length with each character in password being a random value from passwordContainer
-  //create something that makes a string of passwordContainer.length
-  //create something that randomly chooses one value from passwordContainer
-
-  for(i = 0; i <= numOfChars; i++){
-  let something = passwordContainer[Math.floor(Math.random() * passwordContainer.length)];
-  }
