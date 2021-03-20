@@ -35,7 +35,7 @@ function generatePassword() {
     numOfChars;
   }
 
-  //ask user remaining character questions in if statements and concat passwordContainer along the way so that the conditions will keep being added if true
+  //ask user remaining character questions via window.confirm and add responses to passwordContainer
   
   var special = window.confirm("Click OK to confirm including special characters");
   if (special) {
@@ -45,16 +45,19 @@ function generatePassword() {
   
   var numeric = window.confirm("Click OK to confirm including numeric characters");
   if (numeric) {
+    //if numeric = true add it to passwordContainer
       passwordContainer = passwordContainer.concat(numericChars);
   }
 
   var lowerCase = window.confirm("Click OK to confirm lowercase characters");
   if (lowerCase) {
+    //if lowerCase = true add it to passwordContainer
       passwordContainer = passwordContainer.concat(lowerCaseChars);
   }
 
   var upperCase = window.confirm("Click OK to confirm uppercase characters");
   if (upperCase) {
+    //if upperCase = true add it to passwordContainer
       passwordContainer = passwordContainer.concat(upperCaseChars);
   }
 
@@ -65,9 +68,11 @@ function generatePassword() {
     return generatePassword();
   }
 
-  //logs all of the available characters based on user input
+  //all of the available characters based on user input are now logged passwordContainer
 
   //create a random password based on available characters stored in passwordContainer
+
+  //write a for loop that chooses a random index from passwordContainer numOfChars times
   for(i = 0; i <= numOfChars; i++) {
 
     var randomIndex= Math.floor(Math.random() * passwordContainer.length);
@@ -77,7 +82,7 @@ function generatePassword() {
     finalPassword += randomPassword;
 
   }
-
+  //output the results
   return finalPassword;
 };
 

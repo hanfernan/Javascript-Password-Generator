@@ -6,8 +6,8 @@ I wrote the code for the generatePassword function so that a user can specify th
 
 I worked with multiple study groups while working on this project.
 
-![Javascript Password Generator Site](.Assets/Images/password-generator-screenshot.png)
+![Javascript Password Generator Site](password-generator-screenshot.png)
 
-##Deployed Site
+## Deployed Site
 
 The deployed site can be found here: [Javascript-Password-Generator](https://hanfernan.github.io/Javascript-Password-Generator/)
